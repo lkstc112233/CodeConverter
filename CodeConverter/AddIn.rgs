@@ -1,0 +1,77 @@
+HKCR
+{
+	CodeConverter.Connect.1 = s 'Connect Class'
+	{
+		CLSID = s '{F840B509-4193-48AA-99A8-78DB844CAF74}'
+	}
+	CodeConverter.Connect = s 'Connect Class'
+	{
+		CLSID = s '{F840B509-4193-48AA-99A8-78DB844CAF74}'
+		CurVer = s 'CodeConverter.Connect.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove '{F840B509-4193-48AA-99A8-78DB844CAF74}' = s 'Connect Class'
+		{
+			ProgID = s 'CodeConverter.Connect.1'
+			VersionIndependentProgID = s 'CodeConverter.Connect'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{3CFA36F9-505F-4658-B203-ED6C107D690D}'
+		}
+	}
+}
+
+HKCU
+{
+	NoRemove 'SOFTWARE'
+	{
+		NoRemove 'Microsoft'
+		{
+			NoRemove 'VSA'
+			{
+				NoRemove '10.0'
+				{
+					NoRemove 'AddIns'
+					{
+						ForceRemove 'CodeConverter.Connect'
+						{
+							val LoadBehavior = d 0
+							val CommandLineSafe = d 0
+							val CommandPreload = d 1
+							val FriendlyName = s 'CodeConverter - MustStudio'
+							val Description = s 'CodeConverter - 自动整理代码格式。'
+						}
+					}
+				}
+			}
+		}
+	}
+	NoRemove 'SOFTWARE'
+	{
+		NoRemove 'Microsoft'
+		{
+			NoRemove 'VisualStudio'
+			{
+				NoRemove '10.0'
+				{
+					NoRemove 'AddIns'
+					{
+						ForceRemove 'CodeConverter.Connect'
+						{
+							val LoadBehavior = d 0
+							val CommandLineSafe = d 0
+							val CommandPreload = d 1
+							val FriendlyName = s 'CodeConverter - MustStudio'
+							val Description = s 'CodeConverter - 自动整理代码格式。'
+						}
+					}
+				}
+			}
+		}
+	}
+
+}
